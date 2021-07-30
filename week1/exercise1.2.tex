@@ -1,0 +1,59 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 1.2}
+\vspace{1em}
+\subsection*{(a) Show that in the regression model $\log(y_i) = \alpha+\beta \log(x_i) + \epsilon_i$, the elasticity of $y$ with respect to $x$ is equal to $\beta$ (that is, does not depend on the values of $x_i$ and $y_i$).}
+Answer:
+\begin{align*}
+    &\log(y_i) = \alpha+\beta \log(x_i) + \epsilon_i\\
+    &y_i = e^{\alpha+\beta \log(x_i) + \epsilon_i}\\
+    &\frac{y_i}{x_i} = \frac{\beta}{x_i}e^{\alpha+\beta \log(x_i) + \epsilon_i}\\
+\end{align*}
+\begin{align*}
+\text{Elasticity}&=\frac{dy}{dx}\times\frac{x}{y} = \left(\frac{\beta}{x_i}e^{\alpha+\beta \log(x_i) + \epsilon_i}\right) \times\frac{x_i}{y_i}\\
+&=\left(\frac{\beta}{x_i}y_i\right) \times\frac{x_i}{y_i} = \beta
+\end{align*}
+\vspace{1em}
+
+\subsection*{ (b) Determine the elasticity of $y$ with respect to $x$ in the model $y_i = \alpha+\beta \log(x_i) + \epsilon_i$}
+Answer:
+\begin{align*}
+    \text{Elasticity}&=\frac{dy}{dx}\times\frac{x}{y}\\
+    &= \frac{1}{x_i}\beta \frac{x_i}{y_i}\\
+    &= \frac{\beta}{y_i}
+\end{align*}
+\vspace{1em}
+
+\subsection*{ (c) Determine the elasticity of $y$ with respect to $x$ in the model $\log(y_i) = \alpha+\beta x_i + \epsilon_i$}
+Answer:
+\begin{align*}
+    &\log(y_i) = \alpha+\beta x_i + \epsilon_i\\
+    &y_i = e^{\alpha+\beta x_i + \epsilon_i}
+\end{align*}
+\begin{align*}
+    \text{Elasticity}&=\frac{dy}{dx}\times\frac{x}{y}\\
+    &= \beta e^{\alpha+\beta x_i + \epsilon_i} \frac{x_i}{y_i}\\
+    &= \beta y_i\frac{x_i}{y_i}\\
+    &= \beta x_i
+\end{align*}
+\vspace{1em}
+
+\end{document}
