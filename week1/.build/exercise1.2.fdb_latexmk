@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1627650660 "c:/Users/zkyne/Desktop/econometrics/week1/exercise1.2.tex" ".build/exercise1.2.pdf" "exercise1.2" 1627650662
+["pdflatex"] 1627650660 "c:/Users/zkyne/Desktop/econometrics/week1/exercise1.2.tex" ".build/exercise1.2.pdf" "exercise1.2" 1627651698
   ".build/exercise1.2.aux" 1627650661 32 044b7f8fc9779af7531264e0c5c84b6d "pdflatex"
-  "c:/Users/zkyne/Desktop/econometrics/week1/exercise1.2.tex" 1627650659 2013 ce020c94ba4dc894a483be2b6df2b3b8 ""
+  "c:/Users/zkyne/Desktop/econometrics/week1/exercise1.2.tex" 1627651698 2013 ce020c94ba4dc894a483be2b6df2b3b8 ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1624696426 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1624694553 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1624694553 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -63,7 +63,7 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1624699177 5227234 8169b85b11be64e0073b5aa9f9ec0c16 ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1624699328 2814626 9f9bcb846b5af08ee15fa95a06a4a770 ""
   "c:/texlive/2021/texmf.cnf" 1624699154 713 e69b156964470283e0530f5060668171 ""
-  "exercise1.2.tex" 1627650659 2013 ce020c94ba4dc894a483be2b6df2b3b8 ""
+  "exercise1.2.tex" 1627651698 2013 ce020c94ba4dc894a483be2b6df2b3b8 ""
   (generated)
   ".build/exercise1.2.pdf"
   ".build/exercise1.2.log"
