@@ -1,0 +1,112 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 2.4.1}
+\vspace{1em}
+
+By solving the questions of this exercise, you provide a proof of the Gauss-Markov theorem. We use the following
+notation.
+\begin{itemize}
+    \item The OLS estimator is $b = A_0y$ where $A_0 = (X^TX)^{-1}X^T$, with $A_0$ $(k \times n)$ matrix
+    \item Let $\hat{\beta}=Ay$ be linear unbiased, with $A$ $(k \times n)$ matrix
+    \item Define the difference matrix $D=A - A_0$\\
+\end{itemize}
+
+\subsection*{(a) Prove the following three results:}
+\begin{enumerate}
+    \item $Var(\hat{\beta}) = \sigma^2AA^T$
+    \item $\hat{\beta}$ unbiased implies $AX = I$ and $DX = 0$.
+    \item Part (2) implies $AA^T = DD^T + (X^TX)^{-1}$
+\end{enumerate}
+Part (1):
+\begin{align*}
+    &y = X\beta + \epsilon\\
+    &\hat{\beta} = Ay = AX\beta + A\epsilon\\
+    &E(\hat{\beta}) = E(AX\beta + A\epsilon) = AX\beta + AE(\epsilon) = AX\beta
+\end{align*}
+\begin{align*}
+    Var(\hat{\beta}) &= E((\hat{\beta} - E(\hat{\beta}))(\hat{\beta} - E(\hat{\beta}))^T)\\
+    &= E((AX\beta + A\epsilon - AX\beta)(AX\beta + A\epsilon - AX\beta)^T)\\
+    & = E(A\epsilon(A\epsilon)^T)\\
+    &= E(A\epsilon\epsilon^TA^T)\\
+    &= AE(\epsilon\epsilon^T)A^T\\
+    & = \sigma^2AA^T\\
+\end{align*}
+Part (2):
+\begin{align*}
+    &\text{Unbiased }E(\hat{\beta}) = AX\beta = \beta\\
+    &\therefore AX = I\\\\
+    &DX = (A-A_0)X = AX - A_0X = I - (X^TX)^{-1}X^TX = 0\\
+\end{align*}
+Part (3):
+\begin{align*}
+    A_0^T&=[(X^TX)^{-1}X^T]^T = X(X^TX)^{-1}\\\\
+    AA^T&=(D+A_0)(D+A_0)^T\\
+    &=(D+A_0)(D^T+A_0^T)\\
+    &=DD^T + DA_0^T + A_0D^T + A_0A_0^T\\
+    &=DD^T + \underbrace{DX(X^TX)^{-1}}_{=0} + \underbrace{(X^TX)^{-1}X^TD^T}_{=0} + (X^TX)^{-1}X^TX(X^TX)^{-1}\\
+    &=DD^T + (X^TX)^{-1}
+\end{align*}
+\vspace{1em}
+
+\subsection*{(b) Prove that part (a)(3) implies $Var(\hat{\beta}) = Var(b) + \sigma^2DD^T$}
+\begin{align*}
+    Var(\hat{\beta})&= \sigma^2(DD^T + (X^TX)^{-1})\\
+    &= \sigma^2DD^T + \sigma^2(X^TX)^{-1}\\
+    & = \sigma^2DD^T + Var(b)
+\end{align*}
+\vspace{1em}
+
+\subsection*{(c) Prove that part (b) implies $Var(\hat{\beta}) - Var(b)$ is positive semidefinite (Gauss-Markov)}
+\begin{align*}
+    &Var(\hat{\beta}) - Var(b)= \sigma^2DD^T \\\\
+    &\text{Define:}\\
+    &z\;(k\times1)\text{ vector:}\\
+    &d = D^Tz\;(n\times1)\text{ vector with components }d_i\\\\
+    &z^TDD^Tz = (D^Tz)^TD^Tz = d^Td = \sum_{i=1}^nd_i^2 \geq 0\\
+    &\therefore DD^T \text{ is positive semi-definite (PSD)}
+\end{align*}
+\vspace{1em}
+
+\subsection*{(d) Prove that $Var(\hat{\beta}) \geq Var(b)$ for every $j = 1, ..., k$}
+\begin{align*}
+    &\text{Let $c_j$ be a $(k\times1)$ unit vector such that the $j$-th element equals to 1:}\\
+    &c_1=\left(\begin{array}{c}
+        1\\
+        0\\
+        0\\
+        \vdots\\
+        0
+    \end{array}\right)
+\end{align*}
+\begin{align*}
+    c^T_j(Var(\hat{\beta}) - Var(b))c_j &= c^T_jj(\sigma^2DD^T)c_j \geq 0\\
+    c^T_jVar(\hat{\beta})c_j&\geq c^T_jVar(b)c_j\\
+    Var(c^T_j\hat{\beta})&\geq Var(c^T_jb)\\
+    Var(\hat{\beta}_j)&\geq Var(b_j)
+\end{align*}
+\begin{align*}
+    \text{Therefore, $Var(\hat{\beta}_j)\geq Var(b_j)$ for every $j=1,...,k$}
+\end{align*}
+
+\vspace{1em}
+
+
+\end{document}

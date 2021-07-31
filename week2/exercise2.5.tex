@@ -1,0 +1,116 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 2.4.2}
+\vspace{1em}
+
+\begin{align*}
+    &e_i = 0.03 - 0.06\text{EL2}_i -  0.09\text{EL3}_i +  0.06\text{EL4}_i + \text{res}_i\\
+    &R^2 = 0.04
+\end{align*}
+
+\subsection*{(a) Give an intuitive interpretation of the four regression coefficients.}
+For $EL1 = 1$, $e_i = 0.03$. Actual wage is about 3\% higher than predicted by the current model for education level 1.\\
+For $EL2 = 1$, $e_i = 0.03 - 0.06 = -0.03$. Actual wage is about 3\% lower than predicted by the current model for education level 2.\\
+For $EL3 = 1$, $e_i = 0.03 - 0.09 = -0.06$. Actual wage is about 6\% lower than predicted by the current model for education level 3.\\
+For $EL4 = 1$, $e_i = 0.03 + 0.06 = 0.09$. Actual wage is about 9\% higher than predicted by the current model for education levele 4.\\
+\vspace{1em}
+
+\subsection*{(b) Test if the three dummy coefficients are jointly significant, by means of the F-test}
+\begin{align*}
+    F = \frac{(R_1^2 - R_0^2)/g}{(1-R^2_1)/(n-k)}\\
+\end{align*}
+\begin{align*}
+    &H_0 : \beta_2 = \beta_3 = \beta_4 = 0\\
+    &e_i = \beta_1 + \text{res}_i\\
+    &e = X\beta_1 + \text{res}\\
+    &\text{where }x = \left(\begin{array}{c}
+        1\\
+        1\\
+        \vdots\\
+        1
+    \end{array}\right) \;\;(x\times1) \text{ vector}
+\end{align*}
+\begin{align*}
+    b &= (X^TX)^{-1}X^Ty\\
+    \hat{\beta}_1 &= (X^TX)^{-1}X^Te\\
+    &=\left((1\;1\;...\;1)\left(\begin{array}{c}
+        1\\
+        1\\
+        \vdots\\
+        1
+    \end{array}\right)\right)^{-1} (1\;1\;...\;1)\left(\begin{array}{c}
+        e_1\\
+        e_0\\
+        \vdots\\
+        e_n
+    \end{array}\right)\\
+    & = n^{-1}(1\;1\;...\;1)\left(\begin{array}{c}
+        e_1\\
+        e_0\\
+        \vdots\\
+        e_n
+    \end{array}\right)\\
+    &=\frac{1}{n}\sum_{i=1}^ne_i = \bar{e}\\
+\end{align*}
+\begin{align*}
+    \text{res}_i &=e_i - \hat{\beta}_i\\
+    & = e_i - \bar{e}\\\\
+    SSR & = \sum \text{res}_i^2 = \sum (e_i-\bar{e})^2\\
+    SST & = \sum (y_i-\bar{y})^2 = \sum (e_i-\bar{e})^2\\
+    R_0^2 & = 1 - \frac{\text{res}_i^2}{\sum (y_i-\bar{y})^2} = 1 - \frac{1}{1} = 0
+\end{align*}
+\begin{align*}
+    &\text{F-test}:\\
+    &R_1^2 = 0.04 \text{ (given)}\\
+    &R_0^2 = 0\\
+    &g = 3 \;\; (\beta_2, \beta_3, \beta_4)\\
+    &n = 500 \text{ (given)}\\
+    &k = 4\;\; (\beta_1, \beta_2, \beta_3, \beta_4)\\
+    &\text{Critical value }f_{0.025, 3, 496} = 2.6 \\\\
+    &F = \frac{(R_1^2 - R_0^2)/g}{(1-R^2_1)/(n-k)} = \frac{(0.04 - 0)/3}{(1-0.04)/(496)} = 6.89\\
+    &F = 6.89 > 2.6\text{, reject }H_0
+\end{align*}
+\vspace{1em}
+
+\subsection*{(c) Give an economic interpretation of the result in part (b).}
+\begin{align*}
+    \text{Original }& \log(\text{Wage})_i = 3.05 - 0.04 \text{Female}_i + 0.03 \text{Age}_i + 0.23 \text{Educ}_i \\
+    &\qquad\qquad\qquad-0.37 \text{Parttime}_i + \epsilon_i\\
+    \text{New }&\log(\text{Wage})_i = 3.32 -0.03 \text{Female}_i + 0.03 \text{Age}_i + 0.17 \text{EL2}_i+ 0.38 \text{EL3}_i\\
+    &\qquad\qquad\qquad+ 0.78 \text{EL4}_i-0.37 \text{Parttime}_i + \epsilon_i\\\\
+\end{align*}
+Model with fixed education level effects gives systematically biased wage forecast for each education level.\\\\
+For example:\\
+In the original model, for education level 2, wage is $e^{0.23} = 26\%$ higher. In the new model, wage is only $e^{0.17} = 19\%$ higher. 
+\vspace{1em}
+
+\subsection*{(d) Above, it was stated that the residuals $res_i$ have sample mean zero for each of the four education levels. Can you prove this result?}
+\begin{align*}
+    &X^Te = 0\\
+    &X^T\text{res} = 0\\
+    &\sum \text{res}_i = \sum_{\text{Educ}_i = 1} \text{res}_i + \sum_{\text{Educ}_i = 2} \text{res}_i+ \sum_{\text{Educ}_i = 3} \text{res}_i+ \sum_{\text{Educ}_i = 4} \text{res}_i = 0\\
+    \text{Regression property }& \sum_{\text{Educ}_i = 2} \text{res}_i= \sum_{\text{Educ}_i = 3} \text{res}_i= \sum_{\text{Educ}_i = 4} \text{res}_i = 0\\
+    &\therefore \sum_{\text{Educ}_i = 1} \text{res}_i = 0
+\end{align*}
+Since the sum of residual is zero, the sample mean for each education level must be zero.
+\vspace{1em}
+
+\end{document}

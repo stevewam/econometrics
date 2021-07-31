@@ -1,0 +1,64 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 2.3}
+\vspace{1em}
+
+
+\subsection*{(a) Prove that $\hat{y}, e, s^2$ and $R^2$ do not depend on $A$ (that is, are invariant under linear transformations).}
+\begin{align*}
+    &\text{Let }\tilde{X} = XA \text{ where $A$ is a $(k \times k)$ invertible matrix}\\\\
+    &\text{Matrix Properties:}\\
+    &(AB)^T = B^TA^T\\
+    &(A^T)^{-1} = (A^{-1})^T\\
+    &(ABC)^{-1} = C^{-1}B^{-1}A^{-1} \text{ for $A, B, C$ $(k \times k)$ invertible matrix}\\\\
+    &\tilde{H} = \tilde{X}(\tilde{X}^T\tilde{X})^{-1}\tilde{X}^T\\
+    &\tilde{H} = XA((XA)^T(XA))^{-1}(XA)^T\\
+    &\tilde{H} = XA(A^TX^TXA)^{-1}A^TX^T\\
+    &\tilde{H} = XAA^{-1}(X^TX)^{-1}(A^T)^{-1}A^TX^T\\
+    &\tilde{H} = X(X^TX)^{-1}X^T = H\\\\
+    &\tilde{\hat{y}} = \tilde{X}b = \tilde{H}y = Hy = \hat{y}\\
+    &\tilde{e} = \tilde{M}y = (1 -\tilde{H})y = (1 - H)y = e\\
+    &\tilde{s}^2 = \frac{\tilde{e}^T\tilde{e}}{n-k} = \frac{e^Te}{n-k} = s^2\\
+    &\tilde{R}^2 = cor(y, \tilde{\hat{y}})^2 = cor(y, \hat{y})^2 = R^2
+\end{align*}
+\vspace{1em}
+
+\subsection*{(b) Prove that $\tilde{b} = A^{-1}b$ and provide an intuitive interpretation.}
+\begin{align*}
+    \tilde{b} &= (\tilde{X}^T\tilde{X})^{-1}\tilde{X}^Ty\\
+    &=((XA)^T(XA))^{-1}(XA)^Ty\\
+    &= (A^TX^TXA)^{-1}A^TX^Ty\\
+    & = A^{-1}(X^TX)^{-1}(A^T)^{-1}A^TX^Ty\\
+    & = A^{-1}(X^TX)^{-1}X^Ty\\
+    &= A^{-1}b
+\end{align*}
+Alternative explanation:
+\begin{align*}
+    &y = X\beta + \epsilon\\
+    &y = XAA^{-1}\beta + \epsilon\\
+    &y = \tilde{X}(A^{-1}\beta) + \epsilon\\\\
+    &\therefore \tilde{\beta} = A^{-1}\beta\\
+    &\therefore \tilde{b} = A^{-1}b\\
+\end{align*}
+\vspace{1em}
+
+
+\end{document}

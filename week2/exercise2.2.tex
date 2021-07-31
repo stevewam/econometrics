@@ -1,0 +1,104 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 2.2}
+\vspace{1em}
+
+\subsection*{(a) The wage equation presented at the start of Lecture 2.2 contains four explanatory factors (apart from the constant term). Formulate the null hypothesis that none of these four factors has effect on wage in the form $R\beta = r$, that is, determine $R$ and $r$.}
+\begin{align*}
+    &\log(\text{Wage})_i = \beta_1 + \beta_2 \text{Female}_i + \beta_3 \text{Age}_i + \beta_4 \text{Educ}_i + \beta_5 \text{Parttime}_i + \epsilon_i\\\\
+    &\beta = \left(\begin{array}{c}
+        \beta_1\\
+        \beta_2\\
+        \beta_3\\
+        \beta_4\\
+        \beta_5\\
+    \end{array}\right) \qquad
+    R = \left(\begin{array}{ccccc}
+        0 & 1 & 0 & 0 & 0\\
+        0 & 0 & 1 & 0 & 0\\
+        0 & 0 & 0 & 1 & 0\\
+        0 & 0 & 0 & 0 & 1\\
+    \end{array}\right) \qquad
+    r = \left(\begin{array}{c}
+        0\\0\\0\\0\\0\\
+    \end{array}\right)
+\end{align*}
+\vspace{1em}
+
+\subsection*{(b) Extend the wage equation presented at the start of Lecture 2.2 by allowing for education effects that depend on the education level. Hint: Use dummy variables for education levels 2, 3, and 4.}
+\begin{align*}
+    &\log(\text{Wage})_i = \gamma_1 + \gamma_2 \text{Female}_i + \gamma_3 \text{Age}_i + \gamma_4 \text{EL2}_i+ \gamma_5 \text{EL3}_i+ \gamma_6 \text{EL4}_i\\
+    &\qquad\qquad\qquad+ \gamma_7 \text{Parttime}_i + \epsilon_i\\\\
+    &EL2 = \begin{cases}
+        1 & \text{Educ}_i = 2\\
+        0 & \text{otherwise}\\
+    \end{cases} \quad
+    EL3 = \begin{cases}
+        1 & \text{Educ}_i = 3\\
+        0 & \text{otherwise}\\
+    \end{cases} \quad
+    EL4 = \begin{cases}
+        1 & \text{Educ}_i = 4\\
+        0 & \text{otherwise}\\
+    \end{cases}
+\end{align*}
+\vspace{1em}
+
+\subsection*{(c) The model of part (b) is more general than the original wage equation. The original model can be obtained from the model in part (b) by imposing linear restrictions of the type $R\beta = r$. Derive the number of restrictions (g) and determine R and r.}
+The lowest education level is 1. Hence, we can assume its effect as a constant. This constant is equal to $\beta_4$ (as per $\log(\text{Wave})_i$ equation  in part (a)).\\\\
+In part (b) equation, the effect of $EL1$ can assigned into the constant $\gamma_1$.\\\\
+Now, we can evaluate the effect of the $EL2, 3, 4$ on $\log(\text{Wage})_i$:
+\begin{align*}
+    \text{Baseline effect }EL1& = \beta_4\\
+    \text{Compared to baseline }EL2& = \beta_4\qquad \text{In part (b) formula: }&& = \gamma_4\\
+    EL3& = 2\beta_4&& = \gamma_5\\
+    EL4& = 3\beta_4&& = \gamma_6\\
+\end{align*}
+Restrictions:
+\begin{align*}
+    &\gamma_4 = \beta_4\\
+    &\gamma_5 = 2\beta_4 = 2\gamma_4 && \text{Restriction 1}\\
+    &\gamma_6 = 3\beta_4 = 3\gamma_4&& \text{Restriction 2}\\
+\end{align*}
+There are no other restrictions since the other $\gamma$ can take any value. Therefore:
+\begin{align*}
+    \beta = \left(\begin{array}{c}
+        \gamma_1\\
+        \gamma_2\\
+        \gamma_3\\
+        \gamma_4\\
+        \gamma_5\\
+        \gamma_6\\
+        \gamma_7\\
+    \end{array}\right) \qquad
+    R = \left(\begin{array}{ccccccc}
+        0 & 0 & 0 & -2 & 1 & 0 & 0\\
+        0 & 0 & 0 & -3 & 0 & 1 & 0\\
+    \end{array}\right) \qquad
+    r = \left(\begin{array}{c}
+        0\\0\\
+    \end{array}\right)
+\end{align*}
+\vspace{1em}
+
+
+
+\end{document}

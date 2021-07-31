@@ -1,0 +1,51 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Exercise 2.4.2}
+\vspace{1em}
+
+\subsection*{Consider the undrestricted multiple regression model $y = X_1\beta_1 + X_2\beta_2 + \epsilon $. If we impose the  null hypothesis that $\beta_2=0$, we get the restricted model $y = X_1\beta_1 + \epsilon$}
+\vspace{1em}
+
+\subsection*{(a) Suppose that both the restricted and the unrestricted model contain a constant term. Then prove that $F = \frac{(R_1^2 - R_0^2)/g}{(1-R^2_1)/(n-k)}$ where $R_0^2$ and $R_1^2$ are the R-squared of respectively the restricted and unrestricted model.}
+\begin{align*}
+    &F = \frac{(e_0^Te_0 - e_1^Te_1)/g}{e_1^Te_1/(n-k)}\\
+    &R^2 = 1 -\frac{e^Te}{\sum_{i=1}^n(y_i - \bar{y})^2}\\
+    &e^Te = (1 - R^2)\sum_{i=1}^n(y_i - \bar{y})^2\\\\
+    &F = \frac{[(1 - R_0^2)\sum_{i=1}^n(y_i - \bar{y})^2 -  (1 - R_1^2)\sum_{i=1}^n(y_i - \bar{y})^2]/g}{[(1 - R_1^2)\sum_{i=1}^n(y_i - \bar{y})^2]/(n-k)}\\
+    &F = \frac{(R_1^2 - R_0^2)/g}{(1-R^2_1)/(n-k)}
+\end{align*}
+\vspace{1em}
+
+\subsection*{(b) Suppose that we test of a single restriction $H_0: \beta_j = 0$, so that $g=1$. Then prove that $F = t^2$.}
+\begin{align*}
+    &t = \frac{b_j}{s\sqrt{a_{jj}}}\\\\
+    &\text{Generally:}\\
+    &H_0: R\beta = r\\
+    &F = \frac{1}{s^2}(Rb - r)^TV^{-1}(Rb - r)/g\\
+    &V = R(X^TX)^{-1}R^T\\\\
+    &\text{For }\beta_j = 0:\\
+    &H_0: R\beta = r\\
+    &R = (0\; 0\; ... \;1\; ... \;0), \; r = 0\\
+    &V = R(X^TX)^{-1}R^T = a_{jj}\\
+    &F = \frac{1}{s^2}(b_j - 0)\frac{1}{a_{jj}}(b_j - 0) = \frac{b_j^2}{s^2a_{jj}} = t^2
+\end{align*}
+\vspace{1em}
+\end{document}
