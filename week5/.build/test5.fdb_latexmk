@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1628342561 "c:/Users/zkyne/Desktop/econometrics/week5/test5.tex" ".build/test5.pdf" "test5" 1628342617
+["pdflatex"] 1628342561 "c:/Users/zkyne/Desktop/econometrics/week5/test5.tex" ".build/test5.pdf" "test5" 1628346765
   ".build/test5.aux" 1628342562 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "c:/Users/zkyne/Desktop/econometrics/week5/test5.tex" 1628342617 3481 e51040963b60a4a3bca3e73c3677d93d ""
+  "c:/Users/zkyne/Desktop/econometrics/week5/test5.tex" 1628346765 3481 e51040963b60a4a3bca3e73c3677d93d ""
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1624696426 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1624694553 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1624694553 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -62,8 +62,8 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1624699177 5227234 8169b85b11be64e0073b5aa9f9ec0c16 ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1624699328 2814626 9f9bcb846b5af08ee15fa95a06a4a770 ""
   "c:/texlive/2021/texmf.cnf" 1624699154 713 e69b156964470283e0530f5060668171 ""
-  "test5.tex" 1628342617 3481 e51040963b60a4a3bca3e73c3677d93d ""
+  "test5.tex" 1628346765 3481 e51040963b60a4a3bca3e73c3677d93d ""
   (generated)
-  ".build/test5.log"
   ".build/test5.aux"
+  ".build/test5.log"
   ".build/test5.pdf"
