@@ -1,0 +1,108 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Text Exercise 4}
+\vspace{1em}
+\subsection*{Part (a)}
+The answer to the third question ($d_i$) might depend on ommited factors. One possibility would be following another diet. Following another diet would affect both variable $d_i$ and the change in weight ($y_{i1} - y_{i0}$). This can result in an underestimation of significance of $d_i$. If the participant follow another diet, $d_i$ will be zero and ($y_{i1} - y_{i0}$) might be bigger than zero.\\
+\vspace{1em}
+\subsection*{Part (b)}
+The two conditions can be rephrased as follows:
+\begin{enumerate}
+    \item $\frac{1}{n}Z'\varepsilon \to 0$: The variable $z$ representing the door-to-door advertising is not correlated to the residual of the OLS model in Part (a).
+    \item $\frac{1}{n}Z'X \to Q\ne0$: The variable $z$ representing the door-to-door advertising is sufficiently correlated to the residual of the OLS model in Part (a).
+\end{enumerate}
+\vspace{1em}
+\subsection*{Part (c)}
+\begin{enumerate}
+    \item $\frac{1}{n}Z'\varepsilon$: possible to test this statistically using Sargan test.
+    \item $\frac{1}{n}Z'X$: possible to test statistically. Use t-test for coefficient significance for OLS with formula $X = \gamma Z + \eta$ where $\eta$ is the error term.
+\end{enumerate}
+\vspace{1em}
+\subsection*{Part (d)}
+\begin{align*}
+    &\beta = (Z'X)^{-1}(Z'Y)\\
+    &Z = \left(\begin{array}{cc}
+        1&z_1\\
+        1&z_2\\
+        \vdots\\
+        1&z_n
+    \end{array}\right)\quad
+    X = \left(\begin{array}{cc}
+        1&d_1\\
+        1&d_2\\
+        \vdots\\
+        1&d_n
+    \end{array}\right)\quad
+    Y = \left(\begin{array}{c}
+        (y_{11} - y_{10})\\
+        (y_{21} - y_{20})\\
+        \vdots\\
+        (y_{n1} - y_{n0})
+    \end{array}\right)\quad\\\\
+    &Z'X = 
+    \left(\begin{array}{cccc}
+        1&1&...&1\\
+        z_1&z_2&...&z_n\\
+    \end{array}\right)
+    \left(\begin{array}{cc}
+        1&d_1\\
+        1&d_2\\
+        \vdots\\
+        1&d_n
+    \end{array}\right) =
+    \left(\begin{array}{c}
+        n\\
+        \sum_{i=1}^nz_id_i
+    \end{array}\right)\\
+    &(Z'X)^{-1} = 
+    \left(\begin{array}{cc}
+        \frac{1}{n}&\frac{1}{\sum_{i=1}^nz_id_i}
+    \end{array}\right)\\\\
+    &Z'Y = 
+    \left(\begin{array}{cccc}
+        1&1&...&1\\
+        z_1&z_2&...&z_n\\
+    \end{array}\right)
+    \left(\begin{array}{c}
+        (y_{11} - y_{10})\\
+        (y_{21} - y_{20})\\
+        \vdots\\
+        (y_{n1} - y_{n0})
+    \end{array}\right)=\left(\begin{array}{c}
+        \sum_{i=1}^n(y_{i1} - y_{i0})\\
+        \sum_{i=1}^nz_i(y_{i1} - y_{i0})
+    \end{array}\right)
+\end{align*}
+\begin{align*}
+    \therefore \beta &= \left(\begin{array}{cc}
+        \frac{1}{n}&\frac{1}{\sum_{i=1}^nz_id_i}
+    \end{array}\right)\left(\begin{array}{c}
+        \sum_{i=1}^n(y_{i1} - y_{i0})\\
+        \sum_{i=1}^nz_i(y_{i1} - y_{i0})
+    \end{array}\right)\\
+    &= \frac{\sum_{i=1}^n(y_{i1} - y_{i0})}{n} + \frac{\sum_{i=1}^nz_i(y_{i1} - y_{i0})}{\sum_{i=1}^nz_id_i}\\
+    &= \Delta + \frac{\sum\limits_{k\in\{i\;|\;z_i=1\}}z_i(y_{i1} - y_{i0})+\overbrace{\sum_{k\in\{i\;|\;z_i=0\}}z_i(y_{i1} - y_{i0})}^{=0}}{\sum\limits_{k\in\{i\;|\;z_i=1\}}z_id_i+\underbrace{\sum_{k\in\{i\;|\;z_i=0\}}z_id_i}^{=0}}\\
+    &= \Delta + \frac{\sum_{k\in\{i\;|\;z_i=1\}}z_i(y_{i1} - y_{i0})}{\sum_{k\in\{i\;|\;z_i=1\}}z_id_i}\\
+    &= \Delta + \frac{\Delta^1}{\bar{d}^1}
+\end{align*}
+\vspace{1em}
+
+\end{document}

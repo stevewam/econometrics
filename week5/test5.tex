@@ -1,0 +1,68 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Text Exercise 5}
+\vspace{1em}
+\subsection*{Part (a)}
+Answer:
+\begin{align*}
+    &\text{Given: }\\
+    &\quad\beta_2 = 0.914\\
+    &\quad\frac{\partial\text{Pr}[\text{resp}_i = 1]}{\partial\text{active}_i}\frac{\text{active}_i}{\text{Pr}[\text{resp}_i = 1]} = \text{Pr}[\text{resp}_i = 0] \text{active}_i\beta_2\\\\
+    &\text{For age}=50,\;\text{active}=1,\;\text{male}=1:\\
+    &\quad\text{Pr}[\text{resp}_i = 0] = \frac{1}{1+\text{exp}(\beta_0 + \beta_1\text{male}_i+\beta_2\text{active}_i+\beta_3\text{age}_i+\beta_4(\text{age}_i/10)^2)}\\
+    &\quad\text{Pr}[\text{resp}_i = 0] =  0.240\\
+    &\quad\text{Elasticity} = \text{Pr}[\text{resp}_i = 0] \text{active}_i\beta_2 = \bf 0.219\\\\
+    &\text{For age}=50,\;\text{active}=0,\;\text{male}=1:\\
+    &\quad\text{Elasticity} = \text{Pr}[\text{resp}_i = 0] \text{active}_i\beta_2 = \bf 0
+\end{align*}
+\vspace{1em}
+\subsection*{Part (b)}
+Answer:
+\begin{align*}
+    &\text{Given:}\\
+    &\quad\frac{\text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=1] - \text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=0]}{\text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=0]}\\\\
+    &\text{Let: }\\
+    &\quad\gamma = \beta_0 + \beta_1\text{male}_i+\beta_2\text{active}_i+\beta_3\text{age}_i+\beta_4(\text{age}_i/10)^2\\\\
+    &\text{Such that:}\\
+    &\quad\text{Pr}[\text{resp}_i = 0] = \frac{1}{1+\text{exp}(\gamma + \beta_2\text{active}_i)}\\\\
+    &\text{Therefore:}\\
+    &\quad\frac{\text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=1] - \text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=0]}{\text{Pr}[\text{resp}_i = 1\;|\;\text{active}_i=0]}=\\
+    &\quad\frac{\frac{\text{exp}(\gamma + \beta_2)}{1+\text{exp}(\gamma + \beta_2)}}{\frac{\text{exp}(\gamma)}{1+\text{exp}(\gamma)}} -1=\\
+    &\quad\frac{\text{exp}(\gamma)\text{exp}(\beta_2)}{1+\text{exp}(\gamma + \beta_2)}\frac{1+\text{exp}(\gamma)}{\text{exp}(\gamma)} - 1=\\
+    &\quad\frac{\text{exp}(\beta_2)+\text{exp}(\gamma + \beta_2)}{1+\text{exp}(\gamma + \beta_2)} - \frac{1+\text{exp}(\gamma + \beta_2)}{1+\text{exp}(\gamma + \beta_2)}=\\
+    &\quad\frac{\text{exp}(\beta_2)}{1+\text{exp}(\gamma + \beta_2)} - \frac{1}{1+\text{exp}(\gamma + \beta_2)}=\\
+    &\quad(\text{exp}(\beta_2)-1)\frac{1}{1+\text{exp}(\gamma + \beta_2)}=\\
+    &\quad(\text{exp}(\beta_2)-1)\text{Pr}[\text{resp}_i = 0\;|\;\text{active}_i=1]
+\end{align*}
+\vspace{1em}
+\subsection*{Part (c)}
+Answer:
+\begin{align*}
+    &\text{Given: }\\
+    &\quad\text{Elasticity} = (\text{exp}(\beta_2)-1)\text{Pr}[\text{resp}_i = 0\;|\;\text{active}_i=1]\\\\
+    &\text{For age}=50,\;\text{active}=1,\;\text{male}=1:\\
+    &\quad\text{Pr}[\text{resp}_i = 0\;|\;\text{active}_i=1] = \frac{1}{1+\text{exp}(\beta_0 + \beta_1\text{male}_i+\beta_2+\beta_3\text{age}_i+\beta_4(\text{age}_i/10)^2)}\\
+    &\quad\text{Pr}[\text{resp}_i = 0\;|\;\text{active}_i=1] =  0.240\\
+    &\quad\text{Elasticity} =(\text{exp}(\beta_2)-1)\text{Pr}[\text{resp}_i = 0\;|\;\text{active}_i=1] = \bf 0.358\\\\
+\end{align*}
+\vspace{1em}
+
+\end{document}

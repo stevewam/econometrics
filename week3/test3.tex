@@ -1,0 +1,91 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{bbm}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[mathscr]{euscript}
+\usepackage{tabto}
+\usepackage{cancel}
+
+
+\DeclareSymbolFont{rsfs}{U}{rsfs}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscrsfs}{rsfs}
+\titlelabel{\thetitle.\quad}
+\righthyphenmin=1000
+\lefthyphenmin=1000
+
+
+\begin{document}
+\section*{Text Exercise 3}
+\vspace{1em}
+
+\textbf{(a) Consider the usual linear model, where $y = X\beta + \varepsilon$. We now compare two regressions which differ in how many variables are included in the matrix $X$. In the full (unrestricted) model $p_1$ regressors are included. In the restricted model only a subset of $p_0 < p_1$ regressors are included. Show that the smallest model is preferred according to the AIC if $\frac{s_0^2}{s_1^2} < e^{\frac{2}{n}(p_1 - p_0)}$.} \\\\
+Answer:
+\begin{align*}
+    &\text{Unrestricted:}&& \text{AIC}_1 = \log(s_1^2) + \frac{2p_1}{n}\\  
+    &\text{Restricted:} &&\text{AIC}_0 = \log(s_0^2) + \frac{2p_0}{n}\\\\  
+    &\text{Smallest model preferred}: 
+\end{align*}
+\begin{align*}
+    \text{AIC}_0 &< \text{AIC}_1\\
+    \text{AIC}_0 - \text{AIC}_1 &< 0\\
+    \log(s_1^2) + \frac{2p_1}{n} - \log(s_0^2) - \frac{2p_0}{n} &< 0\\
+    \log\left(\frac{s_0^2}{s_1^2}\right) &< \frac{2}{n}(p_1 - p_0)\\
+    \therefore\frac{s_0^2}{s_1^2} &< e^{\frac{2}{n}(p_1 - p_0)}
+\end{align*}
+\vspace{30em}\\
+\textbf{(b) Argue that for very large values of n the inequality of (a) is equal to the condition $\frac{s_0^2 - s_1^2}{s_1^2} < \frac{2}{n}(p_1 - p_0)$. Use that $e^x \approx 1 + x$ for small values of $x$.}\\\\
+Answer:
+\begin{align*}
+    &\text{Since }e^x \approx 1 + x\text{ for small }x:\\
+    &e^{\frac{2}{n}(p_1 - p_0)} \approx 1 + \frac{2}{n}(p_1 - p_0) \text{ since $n$ is large $\rightarrow \frac{2}{n}(p_1 - p_0)$ is small}\\\\
+    &\text{From (a):}
+\end{align*}
+\begin{align*}
+    \frac{s_0^2}{s_1^2} &< 1 + \frac{2}{n}(p_1 - p_0)\\
+    \frac{s_0^2}{s_1^2} -1 &< \frac{2}{n}(p_1 - p_0)\\
+    \therefore\frac{s_0^2-s_1^2}{s_1^2} &< \frac{2}{n}(p_1 - p_0)\\
+\end{align*}
+\vspace{40em}\\
+\textbf{(c) Show that for very large values of n the condition in (b) is approximately equal to $\frac{e_R'e_R - e_U'e_U}{e_U'e_U} < \frac{2}{n}(p_1 - p_0)$ where $e_R$ is the vector of residuals for the restricted model with $p_0$ parameters and $e_U$ the vector of residuals for the full unrestricted model with $p_1$ parameters.}\\\\
+Answer:
+\begin{align*}
+    &\text{By definition:}\\
+    &s_1^2 = \frac{1}{p_1}e_U'e_U\\
+    &s_0^2 = \frac{1}{p_0}e_R'e_R\\\\
+    &\text{From (b):}
+\end{align*}
+\begin{align*}
+    \frac{s_0^2}{s_1^2} &< 1 + \frac{2}{n}(p_1 - p_0)\\
+    \frac{\frac{1}{p_0}e_R'e_R}{\frac{1}{p_1}e_U'e_U}&< 1 + \frac{2}{n}(p_1 - p_0)\\
+    \frac{p_1}{p_0}\frac{e_R'e_R}{e_U'e_U}&< 1 + \frac{2}{n}(p_1 - p_0)\\
+\end{align*}
+\begin{align*}
+    &p_0 < p_1 \rightarrow \frac{p_1}{p_0} > 1\\
+    &\text{Above implies } \frac{p_1}{p_0} = 1 + \epsilon \text{ where }\epsilon>0\\\\
+\end{align*}
+\begin{align*}
+    \text{Therefore: }\\
+    (1+\epsilon)\frac{e_R'e_R}{e_U'e_U}  &< 1 + \frac{2}{n}(p_1 - p_0)\\
+    \frac{e_R'e_R}{e_U'e_U}  &< 1 + \frac{2}{n}(p_1 - p_0)\qquad \text{since } 1 < 1+\epsilon\\
+    \therefore\frac{e_R'e_R - e_U'e_U}{e_U'e_U} &<\frac{2}{n}(p_1 - p_0)
+\end{align*}
+\vspace{20em}\\
+\textbf{(d) Finally, show that the inequality from (c) is approximately equivalent to an F-test with critical value 2, for large sample sizes.}\\
+Answer:
+\begin{align*}
+    &F = \frac{(e_R'e_R - e_U'e_U)/(p_1-p_0)}{e_U'e_U/(n-p_1)}\\\\
+    &\text{When } n >> p_1 \rightarrow (n-p_1) \approx n:\\
+    &F \approx \frac{(e_R'e_R - e_U'e_U)/(p_1-p_0)}{e_U'e_U/(n)}\\\\
+    &\text{From (c):}
+\end{align*}
+\begin{align*}
+    \frac{e_R'e_R - e_U'e_U}{e_U'e_U} &<\frac{2}{n}(p_1 - p_0)\\
+    \frac{e_R'e_R - e_U'e_U/(p_1 - p_0)}{e_U'e_U/n} &<2\\
+    F &<2\\
+\end{align*}
+\vspace{1em}
+
+\end{document}
